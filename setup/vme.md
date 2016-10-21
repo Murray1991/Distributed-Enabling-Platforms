@@ -1,7 +1,7 @@
 # Setting up the Virtual Machine Environment
 
 * Download and install VirtualBox on your machine: http://virtualbox.org/wiki/Downloads
-* Download the Cloudera Quickstart VM at http://www.cloudera.com/content/cloudera/en/downloads/quickstart_vms/cdh-5-3-x.html.
+* Download the Cloudera Quickstart VM at http://www.cloudera.com/downloads/quickstart_vms/5-8.html.
 * Uncompress the VM archive. It is compressed with 7-zip. If needed you can download a tool to uncompress the archive at http://www.7-zip.org/.
 * Install the VM in VirtualBox.
     * Start *VirtualBox* and click *Import Appliance* in the *File* dropdown menu. 
@@ -9,7 +9,8 @@
     * Browse to the uncompressed archive folder, select the `.ovf` file, and click the *Open* button. 
     * Click the *Continue* button. 
     * Click the *Import* button.
-* Your virtual machine should now appear in the left column. Select it and click on *Start* to launch it.* To verify that the VM is running and you can access it, open a browser *on your host machine* to the URL [http://localhost:8088](http://localhost:8088). You should see the resource manager UI. The VM uses port forwarding for the common Hadoop ports, so when the VM is running, those ports on localhost will redirect to the VM.
+* Your virtual machine should now appear in the left column. Select it and click on *Start* to launch it.
+* To verify that the VM is running and you can access it, open a browser *on your host machine* to the URL [http://localhost:8088](http://localhost:8088). You should see the resource manager UI. The VM uses port forwarding for the common Hadoop ports, so when the VM is running, those ports on localhost will redirect to the VM.
 * The virtual machine is equipped with the software:
     * Linux Distro CentOS 6.4
     * Java Environment JDK 7 (1.7.0_67)
@@ -97,14 +98,17 @@ If you see an error dialog warning that the project compiled with warnings, you 
 
 1. Open a terminal and run the following commands:
 
-        hadoop fs -put workspace/WordCount/pg100.txt        hadoop jar wordcount.jar it.cnr.isti.pad. wordcount.WordCount pg100.txt output
+        hadoop fs -put workspace/WordCount/pg100.txt
+        hadoop jar wordcount.jar it.cnr.isti.pad. wordcount.WordCount pg100.txt output
 2. Run the following command: 
 
-        hadoop fs -ls outputYou should see an output file for each reducer. Since there was only one reducer for this job, you should only see one `part-*` file. Note that sometimes the files will be called `part-NNNNN`, and sometimes they’ll be called `part-r-NNNNN`.
+        hadoop fs -ls output
+You should see an output file for each reducer. Since there was only one reducer for this job, you should only see one `part-*` file. Note that sometimes the files will be called `part-NNNNN`, and sometimes they’ll be called `part-r-NNNNN`.
 
     ![](img/snapshot21.jpg)
     
 3. Run the following command: 
 
-        bin/hadoop fs -cat output/part* | headYou should see the same output as when you ran the job locally. 
+        bin/hadoop fs -cat output/part* | head
+You should see the same output as when you ran the job locally. 
 ![](img/snapshot22.jpg)
