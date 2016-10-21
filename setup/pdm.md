@@ -27,7 +27,7 @@ your home folder.
 
   If you cannot ssh to localhost without a passphrase, execute the following commands:
 
-		hadoop@localhost$ ssh-keygen -t rsa -P '' -f ~/.ssh/ir_rsa
+		hadoop@localhost$ ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
         hadoop@localhost$ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 
   The first command will create a private/public pair of keys in the `.ssh` folder in your home folder. If asked for passphrase, leave blank and hit return.
