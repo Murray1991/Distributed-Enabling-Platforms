@@ -101,7 +101,7 @@ Hadoop can also be run on a single-node in a pseudo-distributed mode where each 
 		hadoop@localhost$ bin/hadoop fs -put conf input
 8. Run some of the examples provided:
 
-		hadoop@localhost$ bin/hadoop jar hadoop-*-examples.jar grep input output 'dfs[a-z.]+'
+		hadoop@localhost$ bin/hadoop jar hadoop-1.2.1-examples.jar grep input output 'dfs[a-z.]+'
 9. Copy the output files from the distributed filesystem to the local filesytem and examine them:
 
         hadoop@localhost$ bin/hadoop fs -get output output
