@@ -231,7 +231,7 @@ If compilation and packaging runs smoothly, we will get a new `target` folder, c
 1. Open a terminal and run the following commands:
 
         hadoop fs -put pg100.txt pg100.txt
-        hadoop jar wordcount-1.0-SNAPSHOT.jar it.cnr.isti.pad.WordCount pg100.txt output.txt output
+        hadoop jar wordcount-1.0-SNAPSHOT.jar it.cnr.isti.pad.WordCount pg100.txt output
 2. Run the following command: 
 
         hadoop fs -ls output
