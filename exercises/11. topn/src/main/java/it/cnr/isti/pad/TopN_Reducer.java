@@ -23,8 +23,8 @@ public class TopN_Reducer  extends Reducer<NullWritable, Text, IntWritable, Text
 			String valueAsString = value.toString().trim();
 			String[] tokens = valueAsString.split("\\s+");
 			String url = tokens[0];
-			int frequency =  Integer.parseInt(tokens[1]);
-			top.put(frequency, url);
+			int weight =  Integer.parseInt(tokens[0]);
+			top.put(weight, url);
 			// keep only top N
 			if (top.size() > N) {
 				top.remove(top.firstKey());

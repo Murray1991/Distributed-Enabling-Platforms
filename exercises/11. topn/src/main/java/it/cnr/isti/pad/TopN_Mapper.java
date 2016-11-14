@@ -16,8 +16,8 @@ public class TopN_Mapper extends Mapper<Object, Text, NullWritable, Text>
 	@Override
 	public void map(Object key, Text value, Context context) throws IOException, InterruptedException 
 	{
-		int frequency = Integer.parseInt(key.toString().split("\\s+")[1]);
-		top.put(frequency, key.toString());
+		int weight = Integer.parseInt(value.toString().split("\\s+")[0]);
+		top.put(weight, key.toString());
 		
 		// keep only top N
 		if (top.size() > N) {
