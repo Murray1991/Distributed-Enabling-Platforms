@@ -15,6 +15,11 @@ public class TopN_Driver
 {
 	public static void main(String[] args) throws Exception 
 	{
+		if (args.length != 3) {
+	         System.err.println("usage TopNDriver <N> <input> <output>");
+	         System.exit(1);
+	      }
+		
 		Configuration conf = new Configuration();
 		Job job = new Job(conf, "TopN_Driver");
 	    int N = Integer.parseInt(args[0]); // top N
