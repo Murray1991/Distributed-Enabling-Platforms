@@ -3,13 +3,6 @@
 Write a MapReduce program in Hadoop that, given a set of (`key-as-string`, `value-as-integer`) pairs, say we want to create a top N (where N > 0) list.
 Assume that all input keys are unique. That is, for a given input set {(K, V)}, all Ks are unique.
 
-### Input
-
-* Download the input file [snippets.zip](https://github.com/tonellotto/PAD-LABS/tree/master/data/snippets.zip)
-* Unzip it: `unzip snippets.zip`
-* The `snippets` folder contains 782 text files with name `lineXXX`, where `XXX` runs from `000` to `781`.
-* Each input file contains a text on multiple lines, including numbers, punctuation, etc.
-
 ### Algorithm
 
 The MapReduce program is pretty straightforward: each mapper will find a local top N list (for N > 0) and then will pass it to a *single* reducer. Then the single reducer will find the final top N list from all the local top N lists passed from the mappers. Each mapper creates a local top 10 list and then emits the local top 10 to be sent to the reducer. In emitting the mappers’ output, we use a single reducer key so that all the mappers’ output will be consumed by a single reducer.
@@ -35,4 +28,3 @@ To parameterize the top N list, we just need to pass the N from the driver (whic
             Configuration conf = context.getConfiguration();
             N = conf.get("top.n");
         }
-
